@@ -10,3 +10,6 @@ class Course:
         self.course_id = str(uuid.uuid4())
         self.course_name = course_name
         self.course_mark = course_mark
+
+class Student:
+    total_student_count = 0
