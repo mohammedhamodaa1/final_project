@@ -54,3 +54,12 @@ while True:
         continue
 
     if selection == 1:
+        student_number = input("Enter Student Number: ")
+        student_name = input("Enter Student Name: ")
+        while True:
+            try:
+                student_age = int(input("Enter Student Age: "))
+                break
+            except ValueError:
+                print("Invalid Value")
+
