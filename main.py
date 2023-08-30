@@ -36,3 +36,5 @@ class Student:
         def get_student_average(self):
             if len(self.courses_list) == 0:
                 return 0
+            total_marks = sum(course.course_mark for course in self.courses_list)
+            return total_marks / len(self.courses_list)
