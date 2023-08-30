@@ -21,3 +21,18 @@ class Student:
         self.student_number = student_number
         self.courses_list = []
         Student.total_student_count += 1
+
+        def enroll_course(self, course_name, course_mark):
+            course = Course(course_name, course_mark)
+            self.courses_list.append(course)
+
+        def get_student_details(self):
+            return self.__dict__
+
+        def get_student_courses(self):
+            for course in self.courses_list:
+                print(f"Course: {course.course_name}, Mark: {course.course_mark}")
+
+        def get_student_average(self):
+            if len(self.courses_list) == 0:
+                return 0
