@@ -2,6 +2,28 @@
 Name ="mohammed Emad Hamoda"
 Delivery_Date = "29/8/2023"
 
+import csv
+import datetime
+def mark_attendance(student_id):
+    current_date = datetime.date.today()
+    current_time = datetime.datetime.now().strftime("%H:%M:%S")
+
+    with open('attendance.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([student_id, current_date, current_time])
+
+    print("Attendance marked successfully!")
+
+
+def main():
+    print("ITF 07 Final Project Attendance System")
+
+    student_id = input("Enter student ID: ")
+    mark_attendance(student_id)
+
+
+if __name__ == "__main__":
+    main()
 
 import uuid
 class Course:
@@ -68,4 +90,51 @@ while True:
 
     elif selection == 2:
         student_number = input("Enter Student Number: ")
+        for student in students:
+            if student.student_number == student_number:
+                students.remove(student)
+                print("Student Deleted Successfully")
+                break
+        else:
+            print("Student Not Exist")
+
+    elif selection == 3:
+        student_number = input("Enter Student Number: ")
+        for student in students:
+            if student.student_number == student_number:
+                print("Student Details:")
+                print(f"Student ID: {student.student_id}")
+                print(f"Student Name: {student.student_name}")
+                print(f"Student Age: {student.student_age}")
+                print(f"Student Number: {student.student_number}")
+                print("Courses:")
+                student.get_student_courses()
+                break
+        else:
+            print("Student Not Exist")
+
+    elif selection == 4:
+        student_number = input("Enter Student Number: ")
+        for student in students:
+            if student.student_number == student_number:
+                average = student.get_student_average()
+                print(f"Student Average: {average}")
+                break
+        else:
+            print("Student Not Exist")
+
+    elif selection == 5:
+        student_number = input("Enter Student Number: ")
+        for student in students:
+            if student.student_number == student_number:
+                course_name = input("Enter Course Name: ")
+                while True:
+                    try:
+                        course_mark = float(input("Enter Course Mark: "))
+                        break
+                    except ValueError:
+                        print("Invalid Value")
+                student.enroll_course(course_name, course_mark)
+                print("Course Added Successfully")
+                break
 
