@@ -62,4 +62,10 @@ while True:
                 break
             except ValueError:
                 print("Invalid Value")
+        student = Student(student_name, student_age, student_number)
+        students.append(student)
+        print("Student Added Successfully")
+
+    elif selection == 2:
+        student_number = input("Enter Student Number: ")
 
